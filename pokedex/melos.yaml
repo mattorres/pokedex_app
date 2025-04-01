@@ -1,0 +1,8 @@
+name: pokedex
+packages:
+  - apps/*
+  - packages/*
+scripts:
+  analyze: melos run analyze
+  test: melos run test
+  

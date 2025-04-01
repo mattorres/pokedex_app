@@ -1,0 +1,15 @@
+name: core
+description: Core utilities and shared code for Pokédex App
+version: 0.0.1
+publish_to: none
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+
+dependencies:
+  dependencies:
+    path: ../dependencies
+  flutter_lints: ^5.0.0
+
+dev_dependencies:
+  test: ^1.21.0 
+  build_runner: ^2.4.14
