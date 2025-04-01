@@ -142,6 +142,5 @@ scripts:
 ## 🧪 Testes unitários incluídos
 
 - ✅ Camada de domínio (usecases)
-- ✅ Camada de dados (datasources e repositories)
 - ✅ Camada de apresentação (stores MobX)
 - ✅ Testes executáveis via `melos run test`
