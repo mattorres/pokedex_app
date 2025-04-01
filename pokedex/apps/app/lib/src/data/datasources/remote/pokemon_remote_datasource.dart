@@ -5,7 +5,6 @@ import 'package:core/data/interfaces/http/http_client.dart';
 import '../../models/response/response.dart';
 
 abstract class IPokemonRemoteDataSource {
-  Future<PokemonModel> getPokemonDetails({String name = ''});
   Future<PokemonListResponseModel> getPaginatedPokemonList({
     int offset = 0,
     int limit = 20,
@@ -29,10 +28,5 @@ class PokemonRemoteDataSource implements IPokemonRemoteDataSource {
     );
     final jsonData = jsonDecode(response.data as String);
     return PokemonListResponseModel.fromJson(jsonData);
-  }
-
-  @override
-  Future<PokemonModel> getPokemonDetails({String name = ''}) {
-    throw UnimplementedError();
   }
 }

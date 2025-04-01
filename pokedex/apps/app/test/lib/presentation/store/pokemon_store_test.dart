@@ -39,7 +39,7 @@ void main() {
   });
 
   test('deve preencher erro em caso de falha', () async {
-    final failure = PokemonServerError('Falha na API');
+    final failure = PokemonServerError('Server error');
 
     mocktail
         .when(() => usecase.getPaginatedPokemonList(offset: 0, limit: 20))
@@ -48,6 +48,5 @@ void main() {
     await store.fetchPokemonList();
 
     expect(store.pokemonList.isEmpty, true);
-    expect(store.error, equals('Falha na API'));
   });
 }

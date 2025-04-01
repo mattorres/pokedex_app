@@ -9,11 +9,6 @@ class PokemonRepository implements IPokemonRepository {
   PokemonRepository(this._remoteDataSource);
 
   @override
-  Future<Either<PokemonFailure, List<Pokemon>>> getAll() async {
-    throw UnimplementedError();
-  }
-
-  @override
   Future<Either<PokemonFailure, List<PokemonSummary>>> getPaginatedPokemonList({
     int offset = 0,
     int limit = 20,
@@ -29,10 +24,5 @@ class PokemonRepository implements IPokemonRepository {
     } catch (e) {
       return Left(PokemonServerError(e.toString()));
     }
-  }
-
-  @override
-  Future<Either<PokemonFailure, String>> getImagePokemon(String name) {
-    throw UnimplementedError();
   }
 }

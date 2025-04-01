@@ -125,14 +125,6 @@ class PokemonCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.network(
-                pokemon.url,
-                height: 100,
-                fit: BoxFit.contain,
-                errorBuilder:
-                    (context, error, stackTrace) =>
-                        const Icon(Icons.error, color: Colors.red),
-              ),
               Text(
                 pokemon.name,
                 style: const TextStyle(

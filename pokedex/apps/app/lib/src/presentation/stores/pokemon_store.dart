@@ -35,24 +35,30 @@ abstract class PokemonStoreBase with Store {
   Future<void> fetchPokemonList() async {
     if (isLoading || !hasMore) return;
 
-    isLoading = true;
-    error = null;
+    try {
+      isLoading = true;
+      error = null;
 
-    final result = await _getAllPokemonUsecase.getPaginatedPokemonList(
-      offset: offset,
-      limit: limit,
-    );
+      final result = await _getAllPokemonUsecase.getPaginatedPokemonList(
+        offset: offset,
+        limit: limit,
+      );
 
-    result.fold(
-      (failure) {
-        PokemonServerError(failure.message);
-      },
-      (list) {
-        pokemonList.addAll(list);
-        offset += limit;
-        hasMore = list.length == limit;
-      },
-    );
+      result.fold(
+        (failure) {
+          PokemonServerError(failure.message);
+        },
+        (list) {
+          pokemonList.addAll(list);
+          offset += limit;
+          hasMore = list.length == limit;
+        },
+      );
+    } catch (e) {
+      error = 'Unexpected error: $e';
+    } finally {
+      isLoading = false;
+    }
   }
 
   @action
